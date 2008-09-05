@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:                String-RewritePrefix
-version:             0.001
+version:             0.002
 abstract:            rewrite strings based on a set of known prefixes
 license:             ~
 author:              
