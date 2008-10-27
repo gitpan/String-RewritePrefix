@@ -1,14 +1,20 @@
 --- #YAML:1.0
-name:                String-RewritePrefix
-version:             0.002
-abstract:            rewrite strings based on a set of known prefixes
-license:             ~
-author:              
+name:               String-RewritePrefix
+version:            0.003
+abstract:           rewrite strings based on a set of known prefixes
+author:
     - Ricardo SIGNES <rjbs@cpan.org>
-generated_by:        ExtUtils::MakeMaker version 6.44
-distribution_type:   module
-requires:     
-    Test::Simple:                  0.47
+license:            unknown
+distribution_type:  module
+configure_requires:
+    ExtUtils::MakeMaker:  0
+requires:
+    Test::Simple:  0.47
+no_index:
+    directory:
+        - t
+        - inc
+generated_by:       ExtUtils::MakeMaker version 6.46
 meta-spec:
-    url:     http://module-build.sourceforge.net/META-spec-v1.3.html
-    version: 1.3
+    url:      http://module-build.sourceforge.net/META-spec-v1.4.html
+    version:  1.4
