@@ -9,7 +9,7 @@ String::RewritePrefix - rewrite strings based on a set of known prefixes
 
 =head1 VERSION
 
-version 0.003
+version 0.004
 
 =head1 SYNOPSIS
 
@@ -24,7 +24,7 @@ version 0.003
 
 =cut
 
-our $VERSION = '0.003';
+our $VERSION = '0.004';
 
 =head1 METHODS
 
@@ -35,6 +35,9 @@ our $VERSION = '0.003';
 This rewrites all the given strings using the rules in C<%prefix>.  Its keys
 are known prefixes for which its values will be substituted.  This is performed
 in longest-first order, and only one prefix will be rewritten.
+
+If the prefix value is a coderef, it will be executed with the remaining string
+as its only argument.  The return value will be used as the prefix.
 
 =cut
 
@@ -63,7 +66,12 @@ sub new_rewriter {
     STRING: for my $str (@_) {
       for (my $i = 0; $i < @rewrites; $i += 2) {
         if (index($str, $rewrites[$i]) == 0) {
-          push @result, $rewrites[$i+1] . substr $str, length($rewrites[$i]);
+          if (ref $rewrites[$i+1]) {
+            my $rest = substr $str, length($rewrites[$i]);
+            push @result, $rewrites[$i+1]->($rest) . $rest;
+          } else {
+            push @result, $rewrites[$i+1] . substr $str, length($rewrites[$i]);
+          }
           next STRING;
         }
       }
