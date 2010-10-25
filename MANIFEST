@@ -1,12 +1,11 @@
 Changes
-INSTALL
-lib/String/RewritePrefix.pm
 LICENSE
+MANIFEST
+META.json
+META.yml
 Makefile.PL
-MANIFEST			This list of files
-MANIFEST.SKIP
 README
+dist.ini
+lib/String/RewritePrefix.pm
 t/basic.t
-xt/pod-coverage.t
-xt/pod-format.t
-META.yml                                 Module meta-data (added by MakeMaker)
+t/release-pod-syntax.t

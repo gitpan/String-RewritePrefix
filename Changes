@@ -1,5 +1,10 @@
 Revision history for String-RewritePrefix
 
+0.006     2010-10-25 15:36:37 America/New_York
+          give explicit Sub::Exporter requirement
+
+          do not warn if a coderef prefix generator returns undef
+
 0.005     2009-11-30
           export "rewrite" with Sub::Exporter
           prefix new_rewriter with a _; it was always private
